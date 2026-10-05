@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-handwriting: 'Caveat', cursive;
+    --font-hindi-accent: 'Rozha One', serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #FDFBF7;
+    color: #2D241E;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, .font-serif-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-handwritten {
+    font-family: var(--font-handwriting);
+  }
+
+  .font-ethnic {
+    font-family: var(--font-hindi-accent);
+  }
+}
+
+/* Custom scrollbar for recipe ingredient lists and modals */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5efe6;
+}
+::-webkit-scrollbar-thumb {
+  background: #e2cbaf;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4b58e;
+}
+
+/* Printing styles for recipe card prints */
+@media print {
+  header, footer, nav, button, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+
+/* Pulse glow animation for active cooking mode timers */
+@keyframes warm-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(234, 88, 12, 0);
+  }
+}
+
+.animate-warm-pulse {
+  animation: warm-pulse 2s infinite ease-in-out;
+}
